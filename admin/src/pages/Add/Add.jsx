@@ -12,7 +12,7 @@ const Add = ({url}) => {
         name:"",
         description:"",
         price:"",
-        category:"Salad"
+        category:"250g"
     })
 
     const onChangeHandler = (event) => {
@@ -35,7 +35,7 @@ const Add = ({url}) => {
                 name:"",
                 description:"",
                 price:"",
-                category:"Salad"
+                category:"500g"
             })
             setImage(false)
             toast.success(response.data.message)
@@ -68,19 +68,19 @@ const Add = ({url}) => {
                 <div className="add-category flex-col">
                     <p>Product Category</p>
                     <select className='selectt' onChange={onChangeHandler} name="category">
-                        <option value="Salad">Salad</option>
-                        <option value="Rolls">Rolls</option>
-                        <option value="Deserts">Deserts</option>
-                        <option value="Sandwich">Sandwich</option>
-                        <option value="Cake">Cake</option>
-                        <option value="Pure Veg">Pure Veg</option>
-                        <option value="Pasta">Pasta</option>
-                        <option value="Noodles">Noodles</option>
+                        <option value="250g">250g</option>
+                        <option value="500g">500g</option>
+                        <option value="750g">750g</option>
+                        <option value="1kg">1kg</option>
+                        <option value="2kg">2kg</option>
+                        <option value="3kg">3kg</option>
+                        <option value="4kg">4kg</option>
+                        <option value="5kg">5kg</option>
                     </select>
                 </div>
                 <div className="add-price flex-col">
                     <p>Product Price</p>
-                    <input className='inputclasa' onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='$20' />
+                    <input className='inputclasa' onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='₹20' />
                 </div>
             </div>
             <button type='submit' className='add-btn'>ADD</button>

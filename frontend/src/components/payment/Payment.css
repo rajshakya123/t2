@@ -1,0 +1,59 @@
+.payment-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.payment-method {
+  flex: 1;
+}
+.payment-method h1{
+  color: white;
+  margin-bottom: 20px;
+}
+
+.payment-description {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Button Styles */
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4caf50; /* Light mode button color */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* List Styles */
+.ul-radio-btn {
+  list-style-type: none;
+}
+.ul-radio-btn li{
+  display: flex;
+  gap: 15px;
+}
+.ul-radio-btn li:hover{
+  color: rgb(124, 200, 235);
+  cursor: pointer;
+}
+
+ul li {
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.payment-description{
+  color: white;
+}
+.payment-description p{
+  padding-bottom: 8px;
+} 
+.payment-description hr{
+  margin-bottom: 8px;
+}

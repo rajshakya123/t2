@@ -1,102 +1,123 @@
-.food-item{
-    width: 100%;
-    margin: auto;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px #00000015;
-    transition: 0.3s;
-    animation: fadeIn 1s;
-}
-.food-item-image{
-    width: 100%;
-    border-radius: 15px 15px 0px 0px;
-}
-.food-item-info{
-    padding: 20px;
-}
-.food-item-name-rating{
-    display: grid;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.food-item-name-rating p{
-    font-size: 20px;
-    font-weight: 500;
-}
-.food-item-name-rating img{
-    width: 70px;
-}
-.food-item-desc{
-    color: #676767;
-    font-size: 12px;
-}
-.food-item-price{
-    color: tomato;
-    font-size: 22px;
-    font-weight: 500;
-    margin: 10px 0px;
-}
-.food-item-img-container{
-    position: relative;
-}
-.food-item-img-container .add{
-    width: 35px;
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-.food-item-counter{
-    cursor: pointer;
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px;
-    border-radius: 50px;
-    background-color: white;
-}
-.food-item-counter img{
-    width: 30px;
+.food-item {
+    border: 1px solid #ccc;                /* Light gray border around the card */
+    border-radius: 8px;                    /* Rounded corners for the card */
+    padding: 8px;                          /* Padding inside the card */
+    width: 100%;                           /* Full width for responsiveness */
+    max-width: 500px;                      /* Maximum width for the card */
+    display: flex;                          /* Use flexbox for layout */
+    flex-direction: column;                 /* Stack children vertically */
+    height: 100%;                          /* Full height for uniformity */
+    text-align: center;                     /* Center text alignment */
+    transition: box-shadow 0.2s;           /* Transition effect for hover */
+    background-color: #fff;                 /* Background color for the card */
 }
 
-:root .cartitemsp,
-:root .food-item-price,
-:root .food-item-desc,
-:root .ratingstars,
-:root .namewe {
-    color: white;
+.food-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
-
-.lightcolors .food-item-desc{
-    color: grey;
+.food-item-img-container {
+    margin-bottom: 4px;                    /* Space below the image */
+    height: 200px;                         /* Fixed height for the image container */
+    overflow: hidden;                      /* Hide overflow if image exceeds height */
 }
 
-.lightcolors .cartitemsp,
-.lightcolors .food-item-info,
-.lightcolors .food-item-price,
-.lightcolors .ratingstars,
-.lightcolors .namewe {
-    color: black; 
+.food-item-image {
+    width: 100%;                          /* Full width for the image */
+    height: 200px;                        /* Fixed height for the image */
+    object-fit: cover;                    /* Maintain aspect ratio and cover the container */
+    border-radius: 8px;                   /* Rounded corners for the image */
 }
 
-:root .food-item-counter,
-:root .food-item-info{
-    background-color: rgb(36, 32, 32);
-}
-.lightcolors .food-item-counter,
-.lightcolors .food-item-info{
-    background-color: #FFFFFF;
-}
-
-:root .food-item-img-container .add{
-    background-color: black
+.food-item-info {
+    padding: 0px 8px;
+    flex-grow: 1;                          /* Allow this section to grow and take available space */
+    display: flex;                         /* Use flexbox for layout */
+    flex-direction: column;                /* Stack children vertically */
+    justify-content: flex-start;           /* Align items to the top */
 }
 
-.lightcolors .food-item-img-container .add{
-    background-color: white;
+.food-item-name-rating {
+    display: flex;                         /* Flexbox for name and rating */
+    justify-content: space-between;        /* Space between name and rating */
+    align-items: center;                   /* Center items vertically */
+}
+
+.food-item-price {
+    font-size: 1.5em;
+    margin-top: 10px; 
+    margin-left: 10px;                     /* Larger font size for the price */
+    text-align: left;                      /* Align price text to the left */
+}
+
+.food-item-bottom {
+    display: flex;                         /* Use flexbox for positioning */
+    justify-content: space-between;        /* Space between price and buttons */
+    align-items: center;                   /* Center items vertically */
+    margin-top: -20px;                      /* Push this section to the bottom */
+}
+
+.food-item-actions {
+    display: flex;                         /* Use flexbox to align buttons */
+    gap: 10px;                            /* Space between buttons */
+}
+
+.toggle-button {
+    padding: 10px 20px;                   /* Padding inside buttons */
+    border: none;                          /* No border for buttons */
+    border-radius: 5px;                   /* Rounded corners for buttons */
+    cursor: pointer;                       /* Pointer cursor on hover */
+    font-weight: bold;                     /* Bold text for buttons */
+    transition: background-color 0.3s, color 0.3s; /* Transition effects */
+}
+
+.toggle-button.add {
+    background-color: #28a745;             /* Green background for Add button */
+    color: white;                          /* White text color */
+}
+
+.toggle-button.add:hover {
+    background-color: #218838;             /* Darker green on hover */
+}
+
+.toggle-button.buy {
+    background-color: #007bff;             /* Blue background for Buy button */
+    color: white;                          /* White text color */
+}
+
+.toggle-button.buy:hover {
+    background-color: #0069d9;             /* Darker blue on hover */
+}
+
+.food-item-counter {
+    display: flex;                         /* Flexbox for counter elements */
+    align-items: center;                   /* Center items vertically */
+    gap: 5px;                             /* Space between counter elements */
+}
+
+.cartitemsp {
+    margin: 0 10px;                       /* Space around the counter text */
+}
+
+.food-item-desc {
+    text-align: justify;                   /* Justifies the text content */
+    margin: 0;                             /* No margin around the description */
+    color: #555;                           /* Optional: Set a lighter color for the text */
+    flex-grow: 1;                          /* Allow this section to take remaining space */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .food-item {
+        max-width: 100%;                  /* Full width on small screens */
+        padding: 4px;                     /* Adjust padding for smaller screens */
+    }
+
+    .food-item-price {
+        font-size: 1.2em;                 /* Slightly smaller price font size */
+    }
+
+    .toggle-button {
+        padding: 8px 16px;                /* Adjust button padding for smaller screens */
+    }
 }

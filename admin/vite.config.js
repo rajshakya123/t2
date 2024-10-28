@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     watch: {
       usePolling: true
-    }
+    },
+    port: 3001 // yahan apna desired port number specify karen
   }
 })

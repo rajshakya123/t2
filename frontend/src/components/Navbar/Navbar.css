@@ -5,10 +5,16 @@
     align-items: center;   
 }
 
-.navbar .logo{
+/* .navbar .logo{
     width: 150px;
+} */
+.navbar h1{
+    color: #715122;
+    
 }
-
+.navbar span{
+    color: darkgoldenrod;
+}
 .navbar-menu{
     display: flex;
     list-style: none;
@@ -210,7 +216,7 @@
 }
 
 .lightcolors .navbar-menu {
-    color: #49557e; 
+    color: #4b360a; 
 }
 
 :root .basketlogo {
@@ -239,7 +245,7 @@
 
 
 .lightcolors .signbutton {
-    color: #49557e; 
+    color: #4b360a; 
 }
 
 
@@ -291,4 +297,18 @@
     .navbar-menu{
         display: none;
     }
+}
+.register-shop-button {
+    margin-left: 10px; /* Space between buttons */
+    padding: 8px 12px; /* Padding for the button */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+}
+
+.register-shop-button:hover {
+    background-color: #45a049; /* Darker green on hover */
 }

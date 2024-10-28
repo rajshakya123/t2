@@ -1,4 +1,4 @@
-.login-popup{
+.login-popup {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -7,14 +7,13 @@
     display: grid;
 }
 
-:root .login-popup-title{
+:root .login-popup-title {
     color: white;
 }
 
-.lightcolors .login-popup-title{
+.lightcolors .login-popup-title {
     color: black;
 }
-
 
 :root .login-popup-container {
     background-color: var(--body-color);
@@ -24,13 +23,12 @@
     background-color: white; 
 }
 
-.continuee{
+.continuee {
     position: relative;
     top: 4px;
 }
 
-
-.login-popup-container{
+.login-popup-container {
     place-self: center;
     width: max(23vw, 330px);
     color: #808080;
@@ -43,28 +41,56 @@
     font-size: 14px;
     animation: fadeIn 0.5s;
 }
-.login-popup-title{
+
+.login-popup-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;   
+    color: black;
 }
-.login-popup-title img{
+
+.login-popup-title img {
     width: 16px;
     cursor: pointer;
 }
-.login-popup-inputs{
+
+.login-popup-inputs {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.login-popup-inputs input{
+
+.login-popup-inputs input {
     outline: none;
     border: 1px solid #c9c9c9;
     padding: 10px;
     border-radius: 4px;
 }
-.login-popup-container button{
+
+/* Add this style for the password field with the "Show" button */
+.password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-field input {
+    flex: 1; /* Allows the input field to take up the remaining space */
+    padding-right: 90px; /* Adds space for the Show/Hide button */
+}
+
+.password-field button {
+   position: absolute;
+   left: 278px;
+   top: -13.5px;
+   height: 33px;
+   width: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.login-popup-container button {
     border: none;
     padding: 10px;
     border-radius: 4px;
@@ -73,16 +99,19 @@
     font-size: 15px;
     cursor: pointer;
 }
-.login-popup-condition{
+
+.login-popup-condition {
     display: flex;
     align-items: start;
     gap: 8px;
     margin-top: -15px;
 }
-.login-popup-condition input{
+
+.login-popup-condition input {
     margin-top: 5px;
 }
-.login-popup p span{
+
+.login-popup p span {
     color: tomato;
     font-weight: 500;
     cursor: pointer;

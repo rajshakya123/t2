@@ -21,6 +21,14 @@
     align-items: start;
     gap: 20px;
 }
+.footer-content-left h1{
+    color: #ddaf6a;
+    font-size: 45px;
+}
+.footer-content-left span{
+    color: darkgoldenrod;
+    font-size: 45px;
+}
 .footer-content-left li, .footer-content-right li, .footer-content-center li {
     list-style: none;
     margin-bottom: 10px;

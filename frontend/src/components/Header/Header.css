@@ -1,70 +1,164 @@
-.header{
-    height: 34vw;
-    margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size: contain;
-    position: relative;
-}
-
-.header-contents{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 1.5vw;
-    max-width: 50%;
-    bottom: 10%;
-    left: 6vw;
-    animation: fadeIn 3s;
-}
-
-.header-contents h2{
-    font-weight: 500;
-    color: white;
-    text-shadow: 1px 2px 2px black;
-    font-size: max(4.5vw, 22px);
-}
-
-.header-contents p{
-    color: white;
-    text-shadow: 1px 2px 2px black;
-    font-size: 1vw;
-}
-
-.header-contents button{
-    border: none;
-    color: #747474;
-    font-weight: 500;
-    padding: 1vw 2.3vw;
-    background-color: white;
-    font-size: max(1vw, 13px);
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-:root .buttonwl {
-    color: black;
-}
-
-.lightcolors .buttonwl {
-    color: #747474;
-}
-
-
-@media (max-width:1050px) {
-    .header-contents{
-        max-width: 45%;
+@keyframes highlight {
+    0%, 100% {
+      color: #b9a325; /* Original color */
     }
-}
-
-@media (max-width:750px) {
-    .header-contents{
-        max-width: 65%;
+    50% {
+      color: #ffea00; /* Brighter highlight color */
     }
-    .header-contents p{
-        display: none;
-    }
-    .header-contents button{
-        padding: 2vw 4vw;
-    }
-}
+  }
+  
+  /* Basic Styles for Header */
+  .header {
+      height: auto;
+      max-height: 800px;
+      margin: 30px auto;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #4d340f;
+      padding: 20px;
+      overflow: hidden;
+  }
+  
+  /* Content inside the header */
+  .header-contents {
+      position: relative;
+      width: 80%;
+      max-width: 1200px;
+      height: 100%;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      animation: fadeIn 3s;
+      background-color: #715122;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      border-radius: 10px;
+  }
+  
+  /* Image Styles */
+  .header-contents img {
+      height: auto;
+      max-width: 80%;
+      display: flex;
+      width: 100%; 
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      object-fit: cover;
+      border-radius: 10px;
+  }
+  
+  /* Text container */
+  .header-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      max-width: 600px;
+      text-align: center;
+  }
+  
+  /* Enhanced Highlighted Headline Text */
+  .header-text h2 {
+      font-size: 2.5vw;
+      font-weight: bold;
+      animation: highlight 3s infinite;
+      color: #b9a325; /* Original color */
+  }
+  
+  /* Description Text */
+  .header-text p {
+      line-height: 1.5;
+      font-size: 1vw;
+      color: #fff;
+  }
+  
+  /* Button Styles */
+  .header-text button {
+      border: none;
+      color: #b9a325;
+      font-weight: 500;
+      padding: 1vw 2.3vw;
+      background-color: #4b310a;
+      font-size: max(1vw, 13px);
+      border-radius: 50px;
+      cursor: pointer;
+  }
+  
+  /* Light color theme */
+  :root .buttonwl {
+      color: black;
+  }
+  
+  .lightcolors .buttonwl {
+      color: #e9ac28;
+  }
+  
+  /* Tablet and smaller screens */
+  @media (max-width: 1050px) {
+      .header-contents {
+          width: 90%;
+          gap: 20px;
+      }
+  
+      .header-text h2 {
+          font-size: 4vw;
+      }
+  
+      .header-text p {
+          font-size: 1.2vw;
+      }
+  
+      .header-text button {
+          padding: 1.5vw 3vw;
+      }
+  }
+  
+  /* Mobile screens */
+  @media (max-width: 750px) {
+      .header-contents {
+          flex-direction: column;
+          text-align: center;
+          width: 100%;
+      }
+  
+      .header-text h2 {
+          font-size: 5vw;
+      }
+  
+      .header-text p {
+          display: none;
+      }
+  
+      .header-contents img {
+          width: 80%;
+      }
+  
+      .header-text button {
+          padding: 3vw 6vw;
+      }
+  }
+  
+  /* Very small mobile screens */
+  @media (max-width: 480px) {
+      .header-text h2 {
+          font-size: 6vw;
+      }
+  
+      .header-text p {
+          font-size: 2.5vw;
+      }
+  
+      .header-contents img {
+          width: 100%;
+      }
+  
+      .header-text button {
+          padding: 4vw 8vw;
+      }
+  }
+  

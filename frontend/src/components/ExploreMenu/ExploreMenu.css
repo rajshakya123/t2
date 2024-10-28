@@ -19,6 +19,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 30px;
+    padding: 15px;
     text-align: center;
     margin: 20px 0px;
     overflow-x: scroll;
@@ -28,6 +29,13 @@
     display: none;
 }
 
+.explore-menu-list-item{
+    height: 120px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    background-color: #46320e;
+}
 .explore-menu-list-item img{
     width: 7.5vw;
     min-width: 80px;
@@ -51,7 +59,7 @@
 }
 
 .explore-menu-list-item .active{
-    border: 4px solid tomato;
+    border: 4px solid rgb(90, 68, 20);
     padding: 2px;
 }
 
@@ -64,7 +72,7 @@
 .lightcolors .explore-menu-text,
 .lightcolors .item_menu,
 .lightcolors .h1e {
-    color: black;
+    color: #c28535;
 }
 
 

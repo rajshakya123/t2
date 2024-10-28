@@ -1,13 +1,20 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js"
 import Stripe from "stripe"
+import Razorpay from 'razorpay';
+
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 
+const razorpayInstance = new Razorpay({
+    key_id: 'rzp_test_nIT3Ju4iKvnjNr',
+    key_secret: 'U1VqA3DM2R9eiROVM33zGyIM'
+})
+
 // placing user order from frontend
 const placeOrder = async (req,res) => {
-
+    const RAZORPAY_KEY_ID = 'rzp_test_nIT3Ju4iKvnjNr'
     const frontend_url = "http://localhost:5173";
 
     try {
@@ -17,39 +24,58 @@ const placeOrder = async (req,res) => {
             amount:req.body.amount,
             address:req.body.address
         })
+        const options = {
+            amount: req.body.amount * 100, // Amount in paise (1 INR = 100 paise)
+            currency: 'INR',
+            receipt: 'razorUser@gmail.com'
+        };
+        
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId,{cartData:{}});
 
-        const line_items = req.body.items.map((item)=>({
-            price_data:{
-                currency:"ron",
-                product_data:{
-                    name:item.name
+        const line_items = req.body.items.map((item) => ({
+            price_data: {
+                currency: "ron", // Change this if INR is the intended currency
+                product_data: {
+                    name: item.name
                 },
-                unit_amount:item.price*100*80
+                unit_amount: item.price * 100 * 80  // Multiplied with 80 for some reason?
             },
-            quantity:item.quantity
-        }))
+            quantity: item.quantity
+        }));
+        
+        
 
-        line_items.push({
-            price_data:{
-                currency:"ron",
-                product_data:{
-                    name:"Delivery Charges"
-                },
-                unit_amount:2*100*80
-            },
-            quantity:1
-        })
 
-        const session = await stripe.checkout.sessions.create({
-            line_items:line_items,
-            mode:'payment',
-            success_url:`${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
-            cancel_url:`${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
-        })
+        razorpayInstance.orders.create(options, (err, order) => {
+            if (!err) {
+                res.status(200).send({
+                    success: true,
+                    msg: 'Order Created',
+                    order_id: order.id,
+                    amount: options.amount,  // Update this line
+                    key_id: RAZORPAY_KEY_ID,  // Use env variables for security
+                    product_name: req.body.name,
+                    description: req.body.description,
+                    contact: "8567345632",
+                    name: "Sandeep Sharma",
+                    email: "sandeep@gmail.com",
+                    session_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`
+                });
+            } else {
+                res.status(400).send({ success: false, msg: 'Something went wrong!' });
+            }
+        });
+        
 
-        res.json({success:true,session_url:session.url})
+        // const session = await stripe.checkout.sessions.create({
+        //     line_items:line_items,
+        //     mode:'payment',
+        //     success_url:`${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
+        //     cancel_url:`${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
+        // })
+
+        // res.json({success:true,session_url:session.url})
 
     } catch (error) {
         console.log(error);
